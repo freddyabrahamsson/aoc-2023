@@ -35,6 +35,24 @@ func TestExtractDigitsD(t *testing.T) {
 	}
 }
 
+func TestSubAndExtractA(t *testing.T) {
+	text := "two1nine"
+	expected := []int{2, 1, 9}
+	actual := extractDigits(substituteDigits(text))
+	if !reflect.DeepEqual(actual, expected) {
+		t.Errorf("Extraction from '%s' failed, expected '%#v', got '%#v'", text, expected, actual)
+	}
+}
+
+func TestSubAndExtractB(t *testing.T) {
+	text := "eightwothree"
+	expected := []int{8, 2, 3}
+	actual := extractDigits(substituteDigits(text))
+	if !reflect.DeepEqual(actual, expected) {
+		t.Errorf("Extraction from '%s' failed, expected '%#v', got '%#v'", text, expected, actual)
+	}
+}
+
 func TestPartA(t *testing.T) {
 	inputLines := []string{
 		"1abc2",
